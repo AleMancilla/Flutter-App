@@ -10,7 +10,16 @@ class home extends StatelessWidget{
         centerTitle: true,
         backgroundColor: Colors.orange
         ),
-        body: FloatingActionButton(onPressed: (){})
+      body: Center(
+        child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Text("Hola mundo", style: TextStyle(fontSize: 30),),
+          Text("Hola Mari", style: TextStyle(fontSize: 30))
+        ],
+      ),
+      )
+      
     );
   }
 
