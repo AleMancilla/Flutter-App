@@ -1,8 +1,18 @@
 import 'package:flutter/material.dart';
 
-class home extends StatelessWidget {
 
-  final conteo = 10;
+
+class ContadorDinamico extends StatefulWidget{
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return _ActualizarEstado();
+  }
+
+}
+
+class _ActualizarEstado extends State<ContadorDinamico> {
+int _conteo = 10;
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +20,7 @@ class home extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
             title: Text(
-              "hola",
+              "Statefulwidget",
               style: TextStyle(
                   color: Colors.redAccent, backgroundColor: Colors.blueAccent),
             ),
@@ -24,23 +34,21 @@ class home extends StatelessWidget {
                 "Hola mundo",
                 style: TextStyle(fontSize: 30),
               ),
-              Text("$conteo", style: TextStyle(fontSize: 30)),
+              Text("$_conteo", style: TextStyle(fontSize: 30)),
               Icon(Icons.favorite, size: 80,color: Colors.redAccent,)
             ],
           ),
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: (){
-              print("Hola Mundo");
+            _conteo +=1;
+            setState(() {
+              
+            });
             }, 
           child: Icon(Icons.add),
           ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat ,
         );
-  }
-
-
-  fun(){
-    print("Hola Mundo");
   }
 }
