@@ -39,16 +39,27 @@ int _conteo = 10;
             ],
           ),
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: (){
-            _conteo +=1;
-            setState(() {
-              
-            });
-            }, 
-          child: Icon(Icons.add),
-          ),
+        floatingActionButton: _floatinButtons(),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat ,
         );
+  }
+
+
+  Widget _floatinButtons(){
+          
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: <Widget>[
+        FloatingActionButton(onPressed: (){} , child: Icon(Icons.exposure_zero),),
+        Expanded(child: SizedBox(width: 0,)),
+        FloatingActionButton(onPressed: (){} , child: Icon(Icons.remove),),
+        SizedBox(width: 15,),
+        FloatingActionButton(onPressed: (){} , child: Icon(Icons.add),),
+        SizedBox(width: 5,),
+        
+      ],
+    );
+    
+    
   }
 }
