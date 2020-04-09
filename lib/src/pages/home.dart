@@ -31,6 +31,7 @@ class home extends StatelessWidget {
             }, 
           child: Icon(Icons.add),
           ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat ,
         );
   }
 
