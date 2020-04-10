@@ -1,6 +1,13 @@
-import 'package:app_flutter/src/hola.dart';
+
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(myApp());
+  return MaterialApp(
+    title: Text("data"),
+      debugShowCheckedModeBanner: false,
+      home: Center(
+        child: ,
+      ),
+      //home()
+    );
 }
