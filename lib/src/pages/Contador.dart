@@ -12,7 +12,7 @@ class ContadorDinamico extends StatefulWidget{
 }
 
 class _ActualizarEstado extends State<ContadorDinamico> {
-int _conteo = 10;
+int _conteo = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -50,11 +50,11 @@ int _conteo = 10;
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: <Widget>[
-        FloatingActionButton(onPressed: (){} , child: Icon(Icons.exposure_zero),),
+        FloatingActionButton(onPressed: _cero , child: Icon(Icons.exposure_zero),),
         Expanded(child: SizedBox(width: 0,)),
-        FloatingActionButton(onPressed: (){} , child: Icon(Icons.remove),),
+        FloatingActionButton(onPressed: _restar , child: Icon(Icons.remove),),
         SizedBox(width: 15,),
-        FloatingActionButton(onPressed: (){} , child: Icon(Icons.add),),
+        FloatingActionButton(onPressed: _aumentar, child: Icon(Icons.add),),
         SizedBox(width: 5,),
         
       ],
@@ -62,4 +62,8 @@ int _conteo = 10;
     
     
   }
+
+  void _aumentar() => setState(() { _conteo++;   }); 
+  void _restar() => setState(() { _conteo--;   }); 
+  void _cero() => setState(() { _conteo=0;   }); 
 }
