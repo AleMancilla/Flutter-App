@@ -12,7 +12,7 @@ class HomeTemp extends StatelessWidget{
         title: Text("PageTemp"),
       ),
       body: ListView(
-        children: _crear(),
+        children: _crearmap(),
       ),
     );
   }
@@ -31,5 +31,16 @@ class HomeTemp extends StatelessWidget{
 
     return lst;
   } 
+
+  List<Widget> _crearmap(){
+    return datos.map((String i){
+      return Column(
+        children: <Widget>[
+          ListTile(title: Text(i),subtitle: Text("Subtitulo"),leading: Icon(Icons.accessibility_new),trailing: Icon(Icons.arrow_forward_ios),onTap: null,),
+          Divider(),
+        ],
+      );
+    }).toList();
+  }
 
 }
