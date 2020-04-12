@@ -1,5 +1,8 @@
 import 'package:app_flutter2/src/providers/menu_providers.dart';
+import 'package:app_flutter2/src/utils/icon_string_util.dart';
 import 'package:flutter/material.dart';
+
+import 'Alert.dart';
 
 class Home_Page extends StatelessWidget{
   @override
@@ -17,12 +20,12 @@ class Home_Page extends StatelessWidget{
       future: menuProvider.cargarData(),
       builder: (context, AsyncSnapshot<List<dynamic>> snapshot){
       return ListView(
-        children: _list(snapshot.data),
+        children: _list(snapshot.data, context),
       );
     });
   }
 
-  List<Widget> _list(List<dynamic> data) {
+  List<Widget> _list(List<dynamic> data, BuildContext context) {
     
     final List<Widget> opciones = [];
 
@@ -30,9 +33,12 @@ class Home_Page extends StatelessWidget{
 
       final widgetTemp = ListTile(
         title: Text(opt['texto']),
-        leading: Icon(Icons.account_circle, color: Colors.blue,),
+        leading: getIcon(opt['icon']),
         trailing: Icon(Icons.keyboard_arrow_right, color: Colors.blue,),
-        onTap: (){}, 
+        onTap: (){
+          final route =   MaterialPageRoute(builder: (context)=> AlertPage());
+          Navigator.push(context, route);
+        }, 
       );
 
       opciones..add(widgetTemp)
