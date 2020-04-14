@@ -11,7 +11,7 @@ class AvatarPage extends StatelessWidget {
           padding: EdgeInsets.all(5.0),
           child: CircleAvatar(
             backgroundImage: NetworkImage('https://dam.menshealthlatam.com/wp-content/uploads/2018/11/STANLEE.jpg'),
-            radius: 20.0,
+            //radius: 20.0,
           ),
         ),
         Container(
@@ -19,11 +19,13 @@ class AvatarPage extends StatelessWidget {
           child: CircleAvatar(
             child: Text("SL"),
             backgroundColor: Colors.brown,
-            radius: 20.0,
+            //radius: 20.0,
           ),
         )
       ],),
-      
+      body: Center(
+        child: FadeInImage(placeholder: AssetImage('recursos/jar_loading.gif'), image: NetworkImage('https://ae01.alicdn.com/kf/ULB8dt1dtf2JXKJkSanrq6y3lVXay.jpg_q50.jpg')),
+      ),
     );
   }
 }
