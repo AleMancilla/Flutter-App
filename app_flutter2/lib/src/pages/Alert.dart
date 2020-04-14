@@ -7,6 +7,15 @@ class AlertPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar( title: Text("ALERT"),),
       floatingActionButton: FloatingActionButton(onPressed: (){Navigator.pop(context);}),
-    );
+      body: Center(
+        child: RaisedButton(
+          onPressed: (){},
+          child: Text("BOTON"),
+          shape: StadiumBorder(),
+          color: Colors.blueGrey,
+          textColor: Colors.white,
+          )
+          ),
+      );
   }
 }
