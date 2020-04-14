@@ -25,6 +25,7 @@ class AlertPage extends StatelessWidget {
       barrierDismissible: true,
       builder: (context){
         return AlertDialog(
+          shape: RoundedRectangleBorder(borderRadius:  BorderRadius.circular(10)),
           title: Text("Titulo"),
           content: Column(
             mainAxisSize: MainAxisSize.min,
