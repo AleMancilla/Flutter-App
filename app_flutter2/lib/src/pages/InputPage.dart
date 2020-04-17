@@ -134,6 +134,7 @@ class _InputPagesState extends State<InputPages> {
     return ListTile(
       title: Text("dato $_texto"),
       subtitle: Text("Correo $_correo"),
+      trailing: Text(_cambioDato),
     );
   }
 
@@ -146,13 +147,19 @@ List<DropdownMenuItem<String>> listaDropDown(){
 }
 
   _crearDropDown() {
-    return DropdownButton(
-      value: _cambioDato,
-      items: listaDropDown(), 
-      onChanged: (opt){
-        setState(() {
-          _cambioDato = opt;
-        });
-    });
+    return Row(
+      children: <Widget>[
+        Icon(Icons.ac_unit),
+        SizedBox(width: 5.0,),
+        DropdownButton(
+          value: _cambioDato,
+          items: listaDropDown(), 
+          onChanged: (opt){
+            setState(() {
+              _cambioDato = opt;
+            });
+        }),
+      ],
+    );
   }
 }
