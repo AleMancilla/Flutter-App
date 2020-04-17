@@ -11,7 +11,10 @@ class _InputPagesState extends State<InputPages> {
   String _texto ='' ;
   String _correo = '';
   String _fecha = '';
+  String _cambioDato = 'Super VIsion';
   TextEditingController _variableCambio = new TextEditingController();
+
+  List<String> _poderes = ['volar', 'Super VIsion', 'Super Fuerza', 'Vision X'];
 
 
   @override
@@ -26,10 +29,12 @@ class _InputPagesState extends State<InputPages> {
         _inputfieldCorreo(),
         Divider(height: 5,),
         _inputfieldPass(),
+        Divider(),
+        _crearFecha(context),
+        Divider(),
+        _crearDropDown(),
         Divider(height: 5,),
         _listaPersonas(),
-        Divider(),
-        _crearFecha(context)
       ],),
     );
   }
@@ -56,7 +61,6 @@ class _InputPagesState extends State<InputPages> {
     );
   }
 
-  
   _inputfieldCorreo() {
     return TextField(
       keyboardType: TextInputType.emailAddress,
@@ -76,6 +80,7 @@ class _InputPagesState extends State<InputPages> {
       },
     );
   }
+  
   _inputfieldPass() {
     return TextField(
       obscureText: true,
@@ -90,6 +95,7 @@ class _InputPagesState extends State<InputPages> {
       ),
     );
   }
+  
   _crearFecha(BuildContext context) {
     return TextField(
       enableInteractiveSelection: false,
@@ -129,5 +135,24 @@ class _InputPagesState extends State<InputPages> {
       title: Text("dato $_texto"),
       subtitle: Text("Correo $_correo"),
     );
+  }
+
+List<DropdownMenuItem<String>> listaDropDown(){
+    List<DropdownMenuItem<String>> lista = new List();
+    _poderes.forEach((String opt){
+      lista.add(DropdownMenuItem(child: Text(opt),value: opt,));
+      });
+      return lista;
+}
+
+  _crearDropDown() {
+    return DropdownButton(
+      value: _cambioDato,
+      items: listaDropDown(), 
+      onChanged: (opt){
+        setState(() {
+          _cambioDato = opt;
+        });
+    });
   }
 }
