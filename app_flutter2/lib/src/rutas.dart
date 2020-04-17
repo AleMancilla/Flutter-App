@@ -16,7 +16,7 @@ Map<String, WidgetBuilder> returnRouts(){
         'card':(BuildContext context)=> CardPage(),
         'animateContainer':(BuildContext context)=> AnimatedContainerPage(),
         'input':(BuildContext context)=> InputPages(),
-        'listas':(BuildContext context)=> SlidesPage(),
+        'slider':(BuildContext context)=> SlidesPage(),
       };
   }
 

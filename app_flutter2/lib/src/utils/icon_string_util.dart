@@ -7,7 +7,7 @@ final _iconos = <String, IconData>{
 'folder_open'     : Icons.folder_open,
 'donut_large'     : Icons.donut_large,
 'input_icon'     : Icons.input,
-'listas'     : Icons.list
+'slider'     : Icons.list
 };
 Icon getIcon (String data){
   return Icon(_iconos[data], color: Colors.blue,) ;

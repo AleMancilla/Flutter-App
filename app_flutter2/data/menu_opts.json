@@ -27,9 +27,9 @@
             "texto": "Input Text"
         },
         {
-            "ruta" : "listas",
-            "icon" : "listas",
-            "texto": "Listas"
+            "ruta" : "slider",
+            "icon" : "slider",
+            "texto": "slider"
         }
     ]
 }

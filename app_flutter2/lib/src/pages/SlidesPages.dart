@@ -17,7 +17,14 @@ class _SlidesPageState extends State<SlidesPage> {
        child: Scaffold(
          appBar: AppBar(title: Text("SlidesPages"),),
          body: Center(
-           child: _slider(),
+           child: Column(
+             children: <Widget>[
+               Divider(height: 55.0,),
+               _slider(),
+               _imagen(),
+             ],
+           ),
+
          ),
        ),
     );
@@ -34,8 +41,16 @@ class _SlidesPageState extends State<SlidesPage> {
       onChanged: (valor){
         _valorSlider = valor;
         setState(() {
-          
         });
     });
+  }
+
+  _imagen() {
+    return Image(
+      image: NetworkImage('https://i.pinimg.com/originals/e0/71/a1/e071a187cf230952663472a7179a97bb.jpg'),
+      fit: BoxFit.contain,
+      width: _valorSlider,
+      );
+
   }
 }
