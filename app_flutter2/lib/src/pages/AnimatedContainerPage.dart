@@ -24,7 +24,7 @@ class _AnimatedContainerPageState extends State<AnimatedContainerPage> {
       body: Center(
         child: AnimatedContainer(
           duration: Duration(milliseconds: 750),
-          curve: Curves.bounceOut,
+          curve: Curves.elasticIn,
           width: _width,
           height: _height,
           decoration: BoxDecoration(

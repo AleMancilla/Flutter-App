@@ -10,6 +10,9 @@ class _InputPagesState extends State<InputPages> {
 
   String _texto ='' ;
   String _correo = '';
+  String _fecha = '';
+  TextEditingController _variableCambio = new TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +27,9 @@ class _InputPagesState extends State<InputPages> {
         Divider(height: 5,),
         _inputfieldPass(),
         Divider(height: 5,),
-        _listaPersonas()
+        _listaPersonas(),
+        Divider(),
+        _crearFecha(context)
       ],),
     );
   }
@@ -85,7 +90,34 @@ class _InputPagesState extends State<InputPages> {
       ),
     );
   }
+  _crearFecha(BuildContext context) {
+    return TextField(
+      enableInteractiveSelection: false,
+      controller: _variableCambio,
+      decoration: InputDecoration(
+        icon: Icon(Icons.perm_contact_calendar),
+        suffixIcon: Icon(Icons.calendar_today),
+        hintText: 'Fecha',
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(20.0))
+        )
+      ),
+      onTap: (){
+        FocusScope.of(context).requestFocus(new FocusNode());
+        _selectDate(context);
+      },
+    );
+  }
 
+  _selectDate(BuildContext context) async{
+    DateTime picked =await showDatePicker(context: context, initialDate: new DateTime.now(), firstDate: new DateTime(2018), lastDate: new DateTime(2023));
+    if (picked != null){
+      setState(() {
+        _fecha = picked.toString();
+        _variableCambio.text = _fecha;
+      });
+    }
+  }
 
   Widget _listaPersonas(){
     return ListTile(
