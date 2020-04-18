@@ -11,6 +11,8 @@ class _SlidesPageState extends State<SlidesPage> {
 
   double _valorSlider = 100.0;
 
+  bool _check = false;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,6 +23,7 @@ class _SlidesPageState extends State<SlidesPage> {
              children: <Widget>[
                Divider(height: 55.0,),
                _slider(),
+               _crearCheckbox(),
                _imagen(),
              ],
            ),
@@ -37,8 +40,9 @@ class _SlidesPageState extends State<SlidesPage> {
       divisions: 10,
       value: _valorSlider, 
       min: 10.0,
-      max: 400.0,
-      onChanged: (valor){
+      max: 300.0,
+      onChanged: (_check) ? null : 
+      (valor){
         _valorSlider = valor;
         setState(() {
         });
@@ -53,4 +57,17 @@ class _SlidesPageState extends State<SlidesPage> {
       );
 
   }
+
+  _crearCheckbox() {
+    return CheckboxListTile(
+      title: Text("Bloquear slider"),
+      value: _check, 
+      onChanged: (valor){
+      setState(() {
+      _check = valor;
+      });
+    });
+  }
+
+
 }
