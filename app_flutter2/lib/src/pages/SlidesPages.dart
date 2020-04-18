@@ -24,6 +24,7 @@ class _SlidesPageState extends State<SlidesPage> {
                Divider(height: 55.0,),
                _slider(),
                _crearCheckbox(),
+               _crearSwitch(),
                _imagen(),
              ],
            ),
@@ -61,6 +62,17 @@ class _SlidesPageState extends State<SlidesPage> {
   _crearCheckbox() {
     return CheckboxListTile(
       title: Text("Bloquear slider"),
+      value: _check, 
+      onChanged: (valor){
+      setState(() {
+      _check = valor;
+      });
+    });
+  }
+
+  _crearSwitch() {
+    return SwitchListTile(
+      title: Text("Bloquear switch slider"),
       value: _check, 
       onChanged: (valor){
       setState(() {
