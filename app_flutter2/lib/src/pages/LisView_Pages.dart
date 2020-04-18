@@ -9,7 +9,27 @@ class ListaPages extends StatefulWidget {
 
 class _ListaPagesState extends State<ListaPages> {
 
-  List _images = [13,22,34,45,56,67,73,86,9];
+  List _images = new List();
+  int _ultimodato = 0;
+
+  ScrollController _scrollController = new ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    _recargar();
+
+    
+
+    _scrollController.addListener((){
+      print("SCROLL");
+      if(_scrollController.position.pixels == _scrollController.position.maxScrollExtent){
+    _recargar();
+    }});
+
+    
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,6 +42,7 @@ class _ListaPagesState extends State<ListaPages> {
 
   _crearlista() {
     return ListView.builder(
+      controller: _scrollController,
       itemCount: _images.length,
       itemBuilder: (BuildContext context, int index){
         final _img = _images[index];
@@ -31,5 +52,14 @@ class _ListaPagesState extends State<ListaPages> {
           
       }
       );
+  }
+
+  void _recargar(){
+    for(int i = 1; i<=10 ; i++ ){
+      _ultimodato++;
+      _images.add(_ultimodato);
+      print("_________________$_ultimodato");
+    }
+    setState(() {});
   }
 }
